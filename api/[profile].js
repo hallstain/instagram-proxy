@@ -44,13 +44,10 @@ const handler = async (req, res) => {
   let result;
 
   try {
-    // result = await axios.get(`https://www.instagram.com/${profile}/?__a=1`);
-    result = await axios.get(`https://www.instagram.com/`);
+    result = await axios.get(`https://www.instagram.com/${profile}/?__a=1`);
   } catch (err) {
     res.end(err)
   }
-
-  console.log(result.data)
   // const posts = result.data.graphql.user.edge_owner_to_timeline_media.edges;
   // const view = [];
   //
@@ -62,7 +59,7 @@ const handler = async (req, res) => {
   //   })
   // })
   // res.end(JSON.stringify(view))
-  res.end(JSON.stringify(result.data))
+  res.end(JSON.stringify(result.json()))
 }
 
 module.exports = allowCors(handler)
