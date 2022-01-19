@@ -40,7 +40,6 @@ const corsDown = (src) => {
 }
 
 const handler = async (req, res) => {
-
   const {profile} = req.query;
 
   const result = await axios.get(`https://www.instagram.com/${profile}/?__a=1`);
@@ -49,15 +48,12 @@ const handler = async (req, res) => {
   const view = [];
 
   posts.map(post => {
-
     view.push({
       instagram_link: `https://www.instagram.com/p/${post.node.shortcode}/`,
       link: corsDown(post.node.display_url),
       caption: post.node.edge_media_to_caption.edges[0].node.text,
     })
   })
-
-
   res.end(JSON.stringify(view))
 }
 
