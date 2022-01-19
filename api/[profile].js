@@ -44,7 +44,6 @@ const handler = async (req, res) => {
 
   const result = await axios.get(`https://www.instagram.com/${profile}/?__a=1`);
   const posts = result.data.graphql.user.edge_owner_to_timeline_media.edges;
-
   const view = [];
 
   posts.map(post => {
