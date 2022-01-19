@@ -59,7 +59,7 @@ const handler = async (req, res) => {
   //   })
   // })
   // res.end(JSON.stringify(view))
-  res.end(JSON.stringify(result.data))
+  res.end(result.data)
 }
 
 module.exports = allowCors(handler)
