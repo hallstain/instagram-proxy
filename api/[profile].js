@@ -44,7 +44,7 @@ const handler = async (req, res) => {
   let result;
 
   try {
-    result = await axios.get(`https://www.instagram.com/${profile}/?__a=1`);
+    result = await axios.get(`https://www.instagram.com/${profile}`, {params: {__a: 1}});
   } catch (err) {
     res.end(err)
   }
