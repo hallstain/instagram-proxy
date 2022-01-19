@@ -1,0 +1,27 @@
+version: '3'
+services:
+  instagram:
+    container_name: instagram-proxy
+    environment:
+      - PORT=3000
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "3333:3000"
+    labels:
+      - traefik.http.routers.msyst-portal-cms.rule=Host(`insta-proxy.hallstain.me`)
+      - traefik.http.routers.msyst-portal-cms.entrypoints=websecure
+      - traefik.http.routers.msyst-portal-cms.tls=true
+      - traefik.http.routers.msyst-portal-cms.tls.certresolver=lets-encrypt
+      - traefik.port=80
+    networks:
+      - web
+    volumes:
+      - /usr/src/app/node_modules
+
+
+networks:
+  web:
+    external: true
