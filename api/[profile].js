@@ -41,8 +41,14 @@ const corsDown = (src) => {
 
 const handler = async (req, res) => {
   const {profile} = req.query;
+  let result;
 
-  const result = await axios.get(`https://www.instagram.com/${profile}/?__a=1`);
+  try {
+    result = await axios.get(`https://www.instagram.com/${profile}/?__a=1`);
+  } catch (err) {
+    res.end(err)
+  }
+
   const posts = result.data.graphql.user.edge_owner_to_timeline_media.edges;
   const view = [];
 
