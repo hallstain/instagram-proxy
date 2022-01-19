@@ -38,16 +38,17 @@ app.get("/:profile", async (req, res) => {
     res.end(err)
   }
 
-  const posts = result.data.graphql.user.edge_owner_to_timeline_media.edges;
-  const view = [];
-
-  posts.map(post => {
-    view.push({
-      instagram_link: `https://www.instagram.com/p/${post.node.shortcode}/`,
-      link: corsDown(post.node.display_url),
-    })
-  })
-  res.send(JSON.stringify(view))
+  // const posts = result.data.graphql.user.edge_owner_to_timeline_media.edges;
+  // const view = [];
+  //
+  // posts.map(post => {
+  //   view.push({
+  //     instagram_link: `https://www.instagram.com/p/${post.node.shortcode}/`,
+  //     link: corsDown(post.node.display_url),
+  //   })
+  // })
+  // res.send(JSON.stringify(view))
+  res.send(result.data)
 })
 
 // start the server listening for requests
