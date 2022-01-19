@@ -28,12 +28,11 @@ const corsDown = (src) => {
   return t
 }
 
-app.get("/:profile", async (req, res) => {
-  const {profile} = req.query;
+app.get("/", async (req, res) => {
   let result;
 
   try {
-    result = await axios.get(`https://www.instagram.com/${profile}/`, {params: {__a: 1}});
+    result = await axios.get(`https://www.instagram.com/the_moscow_studio`, {params: {__a: 1}});
   } catch (err) {
     res.end(JSON.stringify(err))
   }
