@@ -48,7 +48,7 @@ app.get("/:profile", async (req, res) => {
   //   })
   // })
   // res.send(JSON.stringify(view))
-  res.send(result.data)
+  res.send(JSON.stringify(result.data))
 })
 
 // start the server listening for requests
