@@ -37,7 +37,6 @@ app.get("/:profile", async (req, res) => {
   } catch (err) {
     res.end(err)
   }
-  console.log(result.data)
 
   const posts = result.data.graphql.user.edge_owner_to_timeline_media.edges;
   const view = [];
@@ -52,4 +51,4 @@ app.get("/:profile", async (req, res) => {
 })
 
 // start the server listening for requests
-app.listen(process.env.PORT || 3000, () => console.log("Server is running..."));
+app.listen(process.env.PORT || 3000, () => console.log("Server is running...", process.env.PORT || 3000));
