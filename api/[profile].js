@@ -49,6 +49,7 @@ const handler = async (req, res) => {
     res.end(err)
   }
 
+  console.log(result.data)
   const posts = result.data.graphql.user.edge_owner_to_timeline_media.edges;
   const view = [];
 
