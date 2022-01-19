@@ -35,7 +35,7 @@ app.get("/:profile", async (req, res) => {
   try {
     result = await axios.get(`https://www.instagram.com/${profile}/channel`, {params: {__a: 1}});
   } catch (err) {
-    res.end(err)
+    res.end(JSON.stringify(err))
   }
 
   // const posts = result.data.graphql.user.edge_owner_to_timeline_media.edges;
